@@ -55,6 +55,10 @@ export class InventoryTableComponent implements OnInit {
     const value = (cost/100)*(100+vatrate)*stock;
     this.product_ids[id][property] = value;
   }
+
+  changeValue(){
+    // Placeholder for changing the value of a field in preparation for saving to database
+  }
  /*
   calculateValue(id: number, property: string,cost: number, stock: number){
     const value = cost*stock;
@@ -89,7 +93,7 @@ export class InventoryTableComponent implements OnInit {
       this.awaitingProductList.splice(0, 1);
     }
   }
-
+ 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
     this.calculateValue(id,'value',this.productList[id]['cost'], this.productList[id]['stock']);

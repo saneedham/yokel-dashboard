@@ -7,7 +7,7 @@
     </tr>
     <tr *ngFor="let product of product_ids.rows">
       <td>
-        <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{product.doc.name}}</span>
+        <span contenteditable="false">{{product.doc.name}}</span>
       </td>
       <td>
         <span contenteditable="true" (keyup)="changeValue(id, 'nonvat', $event)" (blur)="updateList(id, 'nonvat', $event)">{{product.doc.nonvat | number: '1.2-2'}}</span>
