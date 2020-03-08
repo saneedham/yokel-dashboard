@@ -1,0 +1,31 @@
+[
+    {
+        "optionName": "Products",
+        "values":{
+            "enabled": true,
+            "entry": "slideInLeft",
+            "exit": "slideOutLeft",
+            "link":"",
+            "subLevels": [
+                {
+                    "optionName": "All Products",
+                    "values": {
+                        "enabled": true,
+                        "entry": "slideInLeft",
+                        "exit": "slideOutLeft",
+                        "link": "/allProducts"
+                    }
+                },
+                {
+                    "optionName": "Add Product",
+                    "values": {
+                        "enabled": false,
+                        "entry": "slideInLeft",
+                        "exit": "slideOutLeft",
+                        "link": "/addProduct"
+                    }
+                } 
+            ]
+        }
+    },
+]
