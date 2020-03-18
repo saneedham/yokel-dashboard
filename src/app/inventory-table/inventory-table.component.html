@@ -1,29 +1,9 @@
 <table class="table table-bordered table-responsive-md table-striped text-center">
     <tr>
-      <th class="text-center">Product name</th>
-      <th class="text-center">Cost</th>
-      <th class="text-center">In Stock</th>
-      <th class="text-center">Stock Value</th>
+        <th class="text-center" name="col1">{{headings[0]}}</th>
+        <th class="text-center" name="col2">{{headings[1]}}</th>
+        <th class="text-center" name="col3">{{headings[2]}}</th>
+        <th class="text-center" name="col4">{{headings[3]}}</th>
+        <th class="text-center" name="col5">{{headings[4]}}</th>
     </tr>
-    <tr *ngFor="let product of product_ids.rows">
-      <td>
-        <span contenteditable="false">{{product.doc.name}}</span>
-      </td>
-      <td>
-        <span contenteditable="true" (keyup)="changeValue(id, 'nonvat', $event)" (blur)="updateList(id, 'nonvat', $event)">{{product.doc.nonvat | number: '1.2-2'}}</span>
-      </td>
-      <td>
-        <fa-icon [icon]="faMinus" (click)="decreaseStock(product.id, $event)"></fa-icon>
-        <span contenteditable="false"> {{product.doc.stock}} </span>
-        <fa-icon [icon]="faPlus" (click)="increaseStock(product.id)"></fa-icon>
-      </td>
-      <td>
-        <span contenteditable="false">{{product.doc.stockvalue | number: '1.2-2'}}</span>
-      </td>
-       <td>
-        <span class="table-update">
-          <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="update(id)">update</button>
-        </span>
-      </td>
-    </tr>
-  </table>
+</table>
