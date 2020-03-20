@@ -1,31 +1,26 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { OnCreate } from './onCreate.directive';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
 import { InventoryTableComponent } from './inventory-table/inventory-table.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    OnCreate,
     InventoryTableComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    MDBBootstrapModule.forRoot()
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
   ],
-  providers: [  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
