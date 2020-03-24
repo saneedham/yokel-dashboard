@@ -91,112 +91,141 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelectory('button[id="editsave"]').textContent).toEqual('Edit stock level');
   }));
 
+  it(`should call editStockClick()`, async (() => {
+    spyOn(component, 'editStockClick');
+    component.editStockClick();
+    expect(component.editStockClick).toHaveBeenCalled();
+  }));
+
   it(`should call editStockClick() and make stock column editable`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector(`td[name="stock"]`).contentEditable).toBeTruthy();
   }));
 
   it(`should call editStockClick() and change the text of btn.editSave to 'Save'`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Save');
   }));
 
   it(`should call editStockClick() and change the class of the btn.editSave to btn-success`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySeletor('button[id="editSave"]').class).toContain('btn-success');
   }));
 
   it (`should call editStockClick() and change the onclick call of btn.editSave to saveStockClick()`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="editSave"]').onclick).toEqual('saveStockClick');
   }));
 
   it(`should change the class of btn.editSave from btn-primary to btn-warning when the value of stock changes`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
     expect(el.querySelector('button[id="editSave"]').class).toContain('btn-warning');
   }));
 
   it(`should call editStockClick() and make btn.cancel visible`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="cancel"]').hidden).toBeFalsy();
   }));
 
   it(`should call saveStockClick() and change the class of btn.editSave to btn-primary`, async(() => {
-    fixture.editStockClick()
+    component.editStockClick()
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    fixture.saveStockClick()
+    component.saveStockClick()
     expect(el.querySelector('button[id="editSave"]').class).toContain('btn-primary');
   }));
 
+  it(`shoudl call saveStockClick()`, async(() => {
+    spyOn(component, 'saveStockClick');
+    component.saveStockClick();
+    expect(component.saveStockClick).toHaveBeenCalled();
+  }));
   it(`should call saveStockClick() and change the text of btn.editSave to 'Edit'`, async(() => {
-    fixture.editStockClick();
-    fixture.savestockClick();
+    component.editStockClick();
+    component.saveStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Edit');
   }));
 
   it(`should call saveStockClick() and hide btn.cancel`, async(() => {
-    fixture.editStockClick();
-    fixture.saveStockClick();
+    component.editStockClick();
+    component.saveStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="cancel"]').hidden).toBeTruthy();
   }));
 
   it(`should call saveStockClick() and make td.stock uneditable`, async(() => {
-    fixture.editStockClick();
-    fixture.saveStockClick();
+    component.editStockClick();
+    component.saveStockClick();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('td[name="stock"]').contentEditable).toBeFalsy();
   }));
 
+  it(`should call cancelChanges()`, async(() => {
+    spyOn(component, 'cancelChanges');
+    component.cancelChanges();
+    expect(component.cancelChanges).toHaveBeenCalled();
+  }));
+
   it(`should call cancelChanges() and display a modal warning dialog`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    fixture.cancelChanges();
+    component.cancelChanges();
     expect(el.querySelector['div[id="warningModal"]']).toHaveClass('Show');
   }));
 
+  it(`should call goBack()`, async(() => {
+    spyOn(component, 'goBack');
+    component.goBack();
+    expect(component.goBack).toHaveBeenCalled();
+  }));
+
   it(`should call goBack() and close the modal warning dialog`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    fixture.cancelChanges();
-    fixture.goBack();
+    component.cancelChanges();
+    component.goBack();
     expect(el.querySelector('div[id="warningModal"]')).not.toHaveClass('Show');
   }));
 
   it(`should call goBack() and keep the value of stock the same`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    fixture.cancelChanges();
-    fixture.goBack();
+    component.cancelChanges();
+    component.goBack();
     expect(el.querySelector('td[name="stock"]').textContent).toEqual('4');
   }));
 
+  it(`should call cancelConfirm()`, async(() => {
+    spyOn(component, 'cancelConfirm');
+    component.cancelConfirm();
+    expect(component.cancelConfirm).toHaveBeenCalled();
+  }));
+
   it(`should call cancelConfirm() and close the modal warning dialog`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     const originalValue = el.querySelector('td[name="stock"]').textContent;
     el.querySelector('td[name="stock"]').TextContent = 4;
-    fixture.cancelChanges();
-    fixture.cancelConfirm();
+    component.cancelChanges();
+    component.cancelConfirm();
     expect(el.querySelector('td[name="stock"]').textContent).toEqual(originalValue);
   }));
 
   it(`should call cancelConfirm() and make td.stock uneditable`, async(() => {
-    fixture.editStockClick();
-    fixture.cancelChanges();
-    fixture.cancelConfirm();
+    component.editStockClick();
+    component.cancelChanges();
+    component.cancelConfirm();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('td[name="stock"]').contentEditable).toBeFalsy();
   }));
@@ -222,10 +251,10 @@ describe('InventoryTableComponent', () => {
   }));
 
   it(`should call saveStockClick() and update the td.value`, async(() => {
-    fixture.editStockClick();
+    component.editStockClick();
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    fixture.saveStockClick();
+    component.saveStockClick();
     expect(el.querySelector('td[name="value"]').textContent).toEqual(el.querySelector('td[name="stock"]').textContent * el.querySelector('td[name="cost"]').textContent)
   }))
 
