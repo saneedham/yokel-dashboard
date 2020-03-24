@@ -29,4 +29,24 @@ export class InventoryTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editStockClick() {
+
+  }
+
+  saveStockClick() {
+
+  }
+
+  cancelChanges() {
+
+  }
+
+  goBack() {
+
+  }
+
+  cancelConfirm() {
+
+  }
+
 }

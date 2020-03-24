@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InventoryTableComponent } from './inventory-table.component';
-import { By } from '@angular/platform-browser';
 
 describe('InventoryTableComponent', () => {
   let component: InventoryTableComponent;
