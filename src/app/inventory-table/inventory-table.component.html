@@ -16,7 +16,7 @@
       <td name="value">{{product.value}}</td>
       <td name="actions">
         <button type="button" id="editSave" class="btn btn-primary" (click)="editStockClick()">Edit stock level</button>
-        <button type="button" id="cancel" class="btn btn-warning" onclick="cancelChanges()" hidden="true">Cancel</button>
+        <button type="button" id="cancel" class="btn btn-warning" (click)="cancelChanges()" hidden="true">Cancel</button>
       </td>
     </tr>
 
