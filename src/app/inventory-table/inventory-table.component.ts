@@ -24,19 +24,13 @@ export class InventoryTableComponent implements OnInit {
     'Actions'
   ];
 
-  editBtnText = "Edit";
-  editBtnClick = "editStockClick()";
-  cancelBtnHidden:boolean = true;
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
   editStockClick() {
-    this.editBtnText = "Save";
-    this.editBtnClick = "saveStockClick()";
-    this.cancelBtnHidden = false;
+
   }
 
   saveStockClick() {
