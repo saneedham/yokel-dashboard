@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
@@ -25,6 +25,7 @@ export class InventoryTableComponent implements OnInit {
   ];
 
   stockEditable = false;
+  editSaveTxt = 'Edit stock level';
 
   constructor() { }
 
@@ -33,6 +34,7 @@ export class InventoryTableComponent implements OnInit {
 
   editStockClick() {
     this.stockEditable = true;
+    this.editSaveTxt = 'Save';
   }
 
   saveStockClick() {
