@@ -57,10 +57,6 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector('th[name="col5"]').textContent).toEqual('Actions');
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it(`should have a column with the value 'Black Pepper Sausages'`, async(() => {
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('td[name="product"]').textContent).toEqual('Black Pepper Sausages');
