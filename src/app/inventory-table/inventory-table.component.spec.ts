@@ -79,7 +79,7 @@ describe('InventoryTableComponent', () => {
 
   it(`should have a table row with the id 'a2b3e4f5g2h1`, async(() => {
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('tr').id).toEqual('a2b3e4f5g2h1');
+    expect(el.querySelector('tr[name="productRow"]').id).toEqual('a2b3e4f5g2h1');
   }));
 
   it(`should have a button with the prompt 'Edit stock level'`, async (() => {
