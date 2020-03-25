@@ -108,8 +108,9 @@ describe('InventoryTableComponent', () => {
 
   it(`should call editStockClick() and change the class of the btn.editSave to btn-success`, async(() => {
     component.editStockClick();
+    fixture.detectChanges();
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editSave"]').class).toContain('btn-success');
+    expect(el.querySelector('button[id="editSave"]')).toHaveClass('btn-success');
   }));
 
   it (`should call editStockClick() and change the onclick call of btn.editSave to saveStockClick()`, async(() => {

@@ -26,6 +26,8 @@ export class InventoryTableComponent implements OnInit {
 
   stockEditable = false;
   editSaveTxt = 'Edit stock level';
+  saveActive = false;
+
 
   constructor() { }
 
@@ -35,6 +37,7 @@ export class InventoryTableComponent implements OnInit {
   editStockClick() {
     this.stockEditable = true;
     this.editSaveTxt = 'Save';
+    this.saveActive = true;
   }
 
   saveStockClick() {
