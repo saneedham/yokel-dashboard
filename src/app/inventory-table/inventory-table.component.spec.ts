@@ -101,6 +101,7 @@ describe('InventoryTableComponent', () => {
 
   it(`should call editStockClick() and change the text of btn.editSave to 'Save'`, async(() => {
     component.editStockClick();
+    fixture.detectChanges();
     const el = fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Save');
   }));
