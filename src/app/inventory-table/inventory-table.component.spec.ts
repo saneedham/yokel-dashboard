@@ -84,7 +84,7 @@ describe('InventoryTableComponent', () => {
 
   it(`should have a button with the prompt 'Edit stock level'`, async (() => {
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editsave"]').textContent).toEqual('Edit stock level');
+    expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Edit stock level');
   }));
 
   it(`should call editStockClick()`, async (() => {
