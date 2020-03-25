@@ -12,7 +12,7 @@
     <tr name="productRow" id={{product.id}}>
       <td class="pt-3-half" name="product">{{product.name}}</td>
       <td class="pt-3-half" name="cost">{{product.cost}}</td>
-      <td class="pt-3-half" name="stock" contenteditable="false">{{product.stock}}</td>
+      <td class="pt-3-half" name="stock" contenteditable="{{stockEditable}}">{{product.stock}}</td>
       <td name="value">{{product.value}}</td>
       <td name="actions">
         <button type="button" id="editSave" class="btn btn-primary" (click)="editStockClick()">Edit stock level</button>

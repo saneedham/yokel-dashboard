@@ -24,13 +24,15 @@ export class InventoryTableComponent implements OnInit {
     'Actions'
   ];
 
+  stockEditable = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   editStockClick() {
-
+    this.stockEditable = true;
   }
 
   saveStockClick() {
