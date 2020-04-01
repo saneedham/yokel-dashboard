@@ -112,9 +112,14 @@ describe('InventoryTableComponent', () => {
   it(`should call editStockClick() and make btn.cancel visible`, async(() => {
     component.editStockClick(true);
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="cancel"]').hidden).toBeFalsy();
+    expect(el.querySelector('button[id="btn.cancel"]').hidden).toBeFalsy();
   }));
 
+  it(`should call editStockClick() and make btn.save visible`, async(() => {
+   component.editStockClick(true);
+   const el = fixture.debugElement.nativeElement;
+   expect(el.querySelector('button[id="btn.save"]').hidden).toBeFalsy();
+ }));
 
   it(`should call saveStockClick()`, async(() => {
     spyOn(component, 'saveStockClick');
