@@ -82,12 +82,12 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector('tr[name="productRow"]').id).toEqual('a2b3e4f5g2h1');
   }));
 
-  it(`should have a button with the prompt 'Edit stock level'`, async (() => {
+  it(`should have a button (btn.edit) with the prompt 'Edit stock level'`, async (() => {
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Edit stock level');
+    expect(el.querySelector('button[id="btn.edit"]').textContent).toEqual('Edit stock level');
   }));
 
-  it(`should have a button with the prompt 'Save changes'`, async(() => {
+  it(`should have a button (btn.save) with the prompt 'Save changes'`, async(() => {
     const el =fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="btn.save"]').textContent).toEqual('Save');
   }));
@@ -104,18 +104,18 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector(`td[name="stock"]`).contentEditable).toBeTruthy();
   }));
 
-  it(`should call editStockClick() and change the text of btn.editSave to 'Save'`, async(() => {
+  it(`should call editStockClick() and change the text of btn.btn.edit to 'Save'`, async(() => {
     component.editStockClick(true);
     fixture.detectChanges();
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Save');
+    expect(el.querySelector('button[id="btn.edit"]').textContent).toEqual('Save');
   }));
 
-  it(`should call editStockClick() and change the class of the btn.editSave to btn-success`, async(() => {
+  it(`should call editStockClick() and change the class of the btn.btn.edit to btn-success`, async(() => {
     component.editStockClick(true);
     fixture.detectChanges();
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editSave"]')).toHaveClass('btn-success');
+    expect(el.querySelector('button[id="btn.edit"]')).toHaveClass('btn-success');
   }));
 
   it (`should call editStockClick() and change the the value of  this.editMode to false`, async(() => {
@@ -123,11 +123,11 @@ describe('InventoryTableComponent', () => {
     expect(component.editMode).toBeFalsy();
   }));
 
-  it(`should change the class of btn.editSave from btn-primary to btn-warning when the value of stock changes`, async(() => {
+  it(`should change the class of btn.btn.edit from btn-primary to btn-warning when the value of stock changes`, async(() => {
     component.editStockClick(true);
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
-    expect(el.querySelector('button[id="editSave"]').class).toContain('btn-warning');
+    expect(el.querySelector('button[id="btn.edit"]').class).toContain('btn-warning');
   }));
 
   it(`should call editStockClick() and make btn.cancel visible`, async(() => {
@@ -136,12 +136,12 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector('button[id="cancel"]').hidden).toBeFalsy();
   }));
 
-  it(`should call saveStockClick() and change the class of btn.editSave to btn-primary`, async(() => {
+  it(`should call saveStockClick() and change the class of btn.btn.edit to btn-primary`, async(() => {
     component.editStockClick(true)
     const el = fixture.debugElement.nativeElement;
     el.querySelector('td[name="stock"]').textContent = 4;
     component.saveStockClick()
-    expect(el.querySelector('button[id="editSave"]').class).toContain('btn-primary');
+    expect(el.querySelector('button[id="btn.edit"]').class).toContain('btn-primary');
   }));
 
   it(`should call saveStockClick()`, async(() => {
@@ -149,11 +149,12 @@ describe('InventoryTableComponent', () => {
     component.saveStockClick();
     expect(component.saveStockClick).toHaveBeenCalled();
   }));
-  it(`should call saveStockClick() and change the text of btn.editSave to 'Edit'`, async(() => {
+
+  it(`should call saveStockClick() and change the text of btn.btn.edit to 'Edit'`, async(() => {
     component.editStockClick(true);
     component.saveStockClick();
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Edit');
+    expect(el.querySelector('button[id="btn.edit"]').textContent).toEqual('Edit');
   }));
 
   it(`should call saveStockClick() and hide btn.cancel`, async(() => {
