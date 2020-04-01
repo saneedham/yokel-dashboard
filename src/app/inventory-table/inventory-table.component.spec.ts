@@ -109,11 +109,6 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector(`td[name="stock"]`).contentEditable).toBeTruthy();
   }));
 
-  it (`should call editStockClick() and change the the value of  this.editMode to false`, async(() => {
-    component.editStockClick(true);
-    expect(component.editMode).toBeFalsy();
-  }));
-
   it(`should call editStockClick() and make btn.cancel visible`, async(() => {
     component.editStockClick(true);
     const el = fixture.debugElement.nativeElement;
