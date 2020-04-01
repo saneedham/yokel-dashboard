@@ -24,26 +24,12 @@ export class InventoryTableComponent implements OnInit {
     'Actions'
   ];
 
-  stockEditable = false;
-  editSaveTxt = 'Edit stock level';
-  saveActive = false;
-  editMode = true;
-
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  editStockClick(mode: boolean) {
-    if(mode === true) {
-      this.stockEditable = true;
-      this.editSaveTxt = 'Save';
-      this.saveActive = true;
-      this.editMode = false;
-    } else {
-      this.saveStockClick();
-    }
+  editStockClick() {
 
   }
 
