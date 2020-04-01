@@ -32,60 +32,60 @@ describe('InventoryTableComponent', () => {
       fixture = TestBed.createComponent(InventoryTableComponent);
       fixture.detectChanges();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('th[name="col1"]').textContent).toEqual('Product name');
+      expect(el.querySelector('th[id="th.productName"]').textContent).toEqual('Product name');
     }));
 
     it(`should have a column with the heading 'Unit cost (£)'`, async(() => {
       fixture = TestBed.createComponent(InventoryTableComponent);
       fixture.detectChanges();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('th[name="col2"]').textContent).toEqual('Unit cost (£)');
+      expect(el.querySelector('th[id="th.unitCost"]').textContent).toEqual('Unit cost (£)');
     }));
 
     it(`should have a column with the heading 'Stock level'`, async(() => {
       fixture = TestBed.createComponent(InventoryTableComponent);
       fixture.detectChanges();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('th[name="col3"]').textContent).toEqual('Stock level');
+      expect(el.querySelector('th[id="th.stockLevel"]').textContent).toEqual('Stock level');
     }));
 
     it(`should have a column with the heading 'Stock value'`, async(() => {
       fixture = TestBed.createComponent(InventoryTableComponent);
       fixture.detectChanges();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('th[name="col4"]').textContent).toEqual('Stock value');
+      expect(el.querySelector('th[id="th.stockValue"]').textContent).toEqual('Stock value');
     }));
 
     it(`should have a column with the heading 'Actions'`, async(() => {
       fixture = TestBed.createComponent(InventoryTableComponent);
       fixture.detectChanges();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('th[name="col5"]').textContent).toEqual('Actions');
+      expect(el.querySelector('th[id="th.actions"]').textContent).toEqual('Actions');
     }));
 
     it(`should have a column with the value 'Black Pepper Sausages'`, async(() => {
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('td[name="product"]').textContent).toEqual('Black Pepper Sausages');
+      expect(el.querySelector('td[id="td.product"]').textContent).toEqual('Black Pepper Sausages');
     }));
 
     it(`should have a column with the value '3.50'`, async(() => {
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('td[name="cost"]').textContent).toEqual('3.50');
+      expect(el.querySelector('td[id="td.cost"]').textContent).toEqual('3.50');
     }));
 
     it(`should have a column with the value '3'`, async(() => {
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('td[name="stock"]').textContent).toEqual('3');
+      expect(el.querySelector('td[id="td.stock"]').textContent).toEqual('3');
     }));
 
     it(`should have a column with the value '10.50'`, async (() => {
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('td[name="value"]').textContent).toEqual('10.50');
+      expect(el.querySelector('td[id="td.value"]').textContent).toEqual('10.50');
     }));
 
     it(`should have a table row with the id 'a2b3e4f5g2h1`, async(() => {
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('tr[name="productRow"]').id).toEqual('a2b3e4f5g2h1');
+      expect(el.querySelector('tr[id="tr.productRow"]')._id).toEqual('a2b3e4f5g2h1');
     }));
 
     it(`should have a button (btn.edit) with the prompt 'Edit stock level'`, async (() => {
@@ -120,7 +120,7 @@ describe('InventoryTableComponent', () => {
     it(`should call editStockClick() and make stock column editable`, async(() => {
       component.editStockClick();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector(`td[name="stock"]`).contentEditable).toBeTruthy();
+      expect(el.querySelector(`td[id="td.stock"]`).contentEditable).toBeTruthy();
     }));
 
     it(`should call editStockClick() and make btn.cancel visible`, async(() => {
@@ -166,9 +166,9 @@ describe('InventoryTableComponent', () => {
     it(`should call cancelChanges() and display a modal warning dialog`, async(() => {
      component.editStockClick();
      const el = fixture.debugElement.nativeElement;
-     el.querySelector('td[name="stock"]').textContent = 4;
+     el.querySelector('td[id="id.stock"]').textContent = 4;
      component.cancelChanges();
-     expect(el.querySelector['div[id="warningModal"]']).toHaveClass('Show');
+     expect(el.querySelector['div[id="modal.warning"]']).toHaveClass('Show');
     }));
   });
 
@@ -188,7 +188,7 @@ describe('InventoryTableComponent', () => {
    it(`should call goBack() and close the modal warning dialog`, async(() => {
     component.editStockClick();
     const el = fixture.debugElement.nativeElement;
-    el.querySelector('td[name="stock"]').textContent = 4;
+    el.querySelector('td[id="td.stock"]').textContent = 4;
     component.cancelChanges();
     component.goBack();
     expect(el.querySelector('div[id="warningModal"]')).not.toHaveClass('Show');
@@ -197,10 +197,10 @@ describe('InventoryTableComponent', () => {
    it(`should call goBack() and keep the value of stock the same`, async(() => {
     component.editStockClick();
     const el = fixture.debugElement.nativeElement;
-    el.querySelector('td[name="stock"]').textContent = 4;
+    el.querySelector('td[id="td.stock"]').textContent = 4;
     component.cancelChanges();
     component.goBack();
-    expect(el.querySelector('td[name="stock"]').textContent).toEqual('4');
+    expect(el.querySelector('td[id="td.stock"]').textContent).toEqual('4');
     }));
   });
 
@@ -220,11 +220,11 @@ describe('InventoryTableComponent', () => {
     it(`should call cancelConfirm() and close the modal warning dialog`, async(() => {
       component.editStockClick();
       const el = fixture.debugElement.nativeElement;
-      const originalValue = el.querySelector('td[name="stock"]').textContent;
-      el.querySelector('td[name="stock"]').TextContent = 4;
+      const originalValue = el.querySelector('td[id="td.stock"]').textContent;
+      el.querySelector('td[id="td.stock"]').TextContent = 4;
       component.cancelChanges();
       component.cancelConfirm();
-      expect(el.querySelector('td[name="stock"]').textContent).toEqual(originalValue);
+      expect(el.querySelector('td[id="td.stock"]').textContent).toEqual(originalValue);
     }));
 
     it(`should call cancelConfirm() and make td.stock uneditable`, async(() => {
@@ -232,7 +232,7 @@ describe('InventoryTableComponent', () => {
       component.cancelChanges();
       component.cancelConfirm();
       const el = fixture.debugElement.nativeElement;
-      expect(el.querySelector('td[name="stock"]').contentEditable).toBeFalsy();
+      expect(el.querySelector('td[id="td.stock"]').contentEditable).toBeFalsy();
     }));
 
   });
