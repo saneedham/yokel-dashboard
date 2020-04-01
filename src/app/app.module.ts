@@ -19,6 +19,7 @@ import { InventoryTableComponent } from './inventory-table/inventory-table.compo
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    InventoryTableComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
