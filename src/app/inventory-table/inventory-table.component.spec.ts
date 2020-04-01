@@ -109,20 +109,6 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector(`td[name="stock"]`).contentEditable).toBeTruthy();
   }));
 
-  it(`should call editStockClick() and change the text of btn.btn.edit to 'Save'`, async(() => {
-    component.editStockClick(true);
-    fixture.detectChanges();
-    const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="btn.edit"]').textContent).toEqual('Save');
-  }));
-
-  it(`should call editStockClick() and change the class of the btn.btn.edit to btn-success`, async(() => {
-    component.editStockClick(true);
-    fixture.detectChanges();
-    const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('button[id="btn.edit"]')).toHaveClass('btn-success');
-  }));
-
   it (`should call editStockClick() and change the the value of  this.editMode to false`, async(() => {
     component.editStockClick(true);
     expect(component.editMode).toBeFalsy();
