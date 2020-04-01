@@ -90,7 +90,7 @@ describe('InventoryTableComponent', () => {
   it(`should have a button with the prompt 'Save changes'`, async(() => {
     const el =fixture.debugElement.nativeElement;
     expect(el.querySelector('button[id="btn.save"]').textContent).toEqual('Save');
-  }))
+  }));
 
   it(`should call editStockClick()`, async (() => {
     spyOn(component, 'editStockClick');
