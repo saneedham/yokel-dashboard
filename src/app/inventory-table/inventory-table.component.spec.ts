@@ -87,6 +87,11 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector('button[id="editSave"]').textContent).toEqual('Edit stock level');
   }));
 
+  it(`should have a button with the prompt 'Save changes'`, async(() => {
+    const el =fixture.debugElement.nativeElement;
+    expect(el.querySelector('button[id="btn.save"]').textContent).toEqual('Save');
+  }))
+
   it(`should call editStockClick()`, async (() => {
     spyOn(component, 'editStockClick');
     component.editStockClick(true);
@@ -139,7 +144,7 @@ describe('InventoryTableComponent', () => {
     expect(el.querySelector('button[id="editSave"]').class).toContain('btn-primary');
   }));
 
-  it(`shoudl call saveStockClick()`, async(() => {
+  it(`should call saveStockClick()`, async(() => {
     spyOn(component, 'saveStockClick');
     component.saveStockClick();
     expect(component.saveStockClick).toHaveBeenCalled();
