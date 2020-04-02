@@ -24,6 +24,8 @@ export class InventoryTableComponent implements OnInit {
     'Actions'
   ];
 
+  stockEditable = false;
+
   constructor() { }
 
   ngOnInit(): void {
