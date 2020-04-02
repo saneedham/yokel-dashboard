@@ -9,12 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr name="productRow" id={{product.id}}>
-      <td class="pt-3-half" name="product">{{product.name}}</td>
-      <td class="pt-3-half" name="cost">{{product.cost}}</td>
-      <td class="pt-3-half" name="stock" [contentEditable]="stockEditable">{{product.stock}}</td>
-      <td name="value">{{product.value}}</td>
-      <td name="actions">
+    <tr id="tr.productRow" _id={{product.id}}>
+      <td class="pt-3-half" id="td.product">{{product.name}}</td>
+      <td class="pt-3-half" id="td.cost">{{product.cost}}</td>
+      <td class="pt-3-half" id="td.stock" [contentEditable]="stockEditable">{{product.stock}}</td>
+      <td id="td.value">{{product.value}}</td>
+      <td id="td.actions">
         <button type="button" id="editSave" [class.btn-success]="saveActive" [class.btn-primary]="!saveActive" class="btn" [click]="editStockClick()">{{editSaveTxt}}</button>
         <button type="button" id="cancel" class="btn btn-warning" (click)="cancelChanges()" hidden="true">Cancel</button>
       </td>
