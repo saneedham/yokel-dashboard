@@ -93,7 +93,7 @@ describe('InventoryTableComponent', () => {
       expect(el.querySelector('button[id="btn.edit"]').textContent).toEqual('Edit stock level');
     }));
 
-    it(`should have a button (btn.save) with the prompt 'Save changes'`, async(() => {
+    it(`should have a button (btn.save) with the prompt 'Save'`, async(() => {
       const el = fixture.debugElement.nativeElement;
       expect(el.querySelector('button[id="btn.save"]').textContent).toEqual('Save');
     }));
