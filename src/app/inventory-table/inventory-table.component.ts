@@ -26,6 +26,7 @@ export class InventoryTableComponent implements OnInit {
 
   stockEditable = false;
   btnCancelHidden = true;
+  btnSaveHidden = true;
 
   constructor() { }
 
@@ -33,8 +34,9 @@ export class InventoryTableComponent implements OnInit {
   }
 
   editStockClick() {
-    btnCancelHidden = false;
-  }
+    this.btnCancelHidden = false;
+    this.btnSaveHidden = false;
+    }
 
   saveStockClick() {
 
