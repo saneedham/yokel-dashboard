@@ -15,9 +15,9 @@
       <td class="pt-3-half" id="td.stock" [contentEditable]="stockEditable">{{product.stock}}</td>
       <td id="td.value">{{product.value}}</td>
       <td id="td.actions">
-        <button type="button" id="btn.edit" class="btn btn-primary" (click)="editStockClick()" [hidden]="btnEditHidden">Edit stock level</button>
-        <button type="button" id="btn.save" class="btn btn-success" (click)="saveStockClick()" [hidden]="btnSaveHidden">Save</button>
-        <button type="button" id="btn.cancel" class="btn btn-warning" (click)="cancelChanges()" [hidden]="btnCancelHidden">Cancel</button>
+        <button type="button" id="btn.edit" class="btn btn-primary" (click)="editStockClick()" hidden="{{btnEditHidden}}">Edit stock level</button>
+        <button type="button" id="btn.save" class="btn btn-success" (click)="saveStockClick()" hidden="{{btnSaveHidden}}">Save</button>
+        <button type="button" id="btn.cancel" class="btn btn-warning" (click)="cancelChanges()" hidden="{{btnCancelHidden}}">Cancel</button>
       </td>
     </tr>
   </tbody>
